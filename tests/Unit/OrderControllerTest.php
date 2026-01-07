@@ -9,9 +9,6 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 class OrderControllerTest extends TestCase
 {
     use RefreshDatabase; // refresh the db
-    /**
-     * A basic unit test example.
-     */
     public function test_example(): void
     {
         $this->assertTrue(true);
@@ -53,7 +50,7 @@ class OrderControllerTest extends TestCase
                  ->assertJson($order->toArray());
     }
 
-     public function it_can_update_an_order()
+    public function it_can_update_an_order()
     {
         $order = Order::factory()->create();
 
@@ -76,9 +73,9 @@ class OrderControllerTest extends TestCase
     {
         $order = Order::factory()->create();
 
-        $response = $this->delete("/api/orders/{$order->id}");
-
+        
         $response->assertStatus(204);
+        $response = $this->delete("/api/orders/{$order->id}");
         $this->assertDatabaseMissing('orders', ['id' => $order->id]);
     }
 }
