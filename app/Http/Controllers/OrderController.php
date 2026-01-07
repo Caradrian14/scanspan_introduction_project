@@ -7,8 +7,12 @@ use Illuminate\Http\Request;
 class OrderController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     */
+     * @OA\Get(
+     *     path="/api/orders",
+     *     summary="List orders",
+     *     @OA\Response(response="200", description="list of orders")
+     * )
+    */
     public function index()
     {
         return Order::all();

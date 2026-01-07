@@ -9,11 +9,11 @@ servers:
 paths:
   /orders:
     get:
-      summary: Lista todos los pedidos
-      description: Devuelve un listado de todos los pedidos registrados.
+      summary: List all orders
+      description: Returns a list of orders registred in the db
       responses:
         '200':
-          description: Lista de pedidos
+          description: List of Orders
           content:
             application/json:
               schema:
@@ -21,8 +21,8 @@ paths:
                 items:
                   $ref: '#/components/schemas/Order'
     post:
-      summary: Crea un nuevo pedido
-      description: Registra un nuevo pedido en la base de datos.
+      summary: Create a new Order
+      description: Register a new order in the db
       requestBody:
         required: true
         content:
@@ -31,13 +31,13 @@ paths:
               $ref: '#/components/schemas/Order'
       responses:
         '201':
-          description: Pedido creado exitosamente
+          description: Order created correctly
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Order'
         '422':
-          description: Error de validación
+          description: Validation Erro
           content:
             application/json:
               schema:
@@ -50,34 +50,34 @@ paths:
 
   /orders/{id}:
     get:
-      summary: Muestra un pedido específico
-      description: Devuelve los detalles de un pedido según su ID.
+      summary: Show a specific order
+      description: Return the order details based on the id.
       parameters:
         - in: path
           name: id
           required: true
           schema:
             type: integer
-          description: ID del pedido
+          description: ID of the order
       responses:
         '200':
-          description: Detalles del pedido
+          description: Details of the order
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Order'
         '404':
-          description: Pedido no encontrado
+          description: Order not found
     put:
-      summary: Actualiza un pedido
-      description: Actualiza la información de un pedido existente.
+      summary: Update an order
+      description: Updates the information of an existing Order
       parameters:
         - in: path
           name: id
           required: true
           schema:
             type: integer
-          description: ID del pedido
+          description: ID from the order
       requestBody:
         required: true
         content:
@@ -86,30 +86,30 @@ paths:
               $ref: '#/components/schemas/Order'
       responses:
         '200':
-          description: Pedido actualizado exitosamente
+          description: Order updated successfully
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Order'
         '404':
-          description: Pedido no encontrado
+          description: Ordered not found
         '422':
-          description: Error de validación
+          description: Validation error
     delete:
-      summary: Elimina un pedido
-      description: Elimina un pedido de la base de datos.
+      summary: Delete an existing Order
+      description: Delete an order.
       parameters:
         - in: path
           name: id
           required: true
           schema:
             type: integer
-          description: ID del pedido
+          description: ID from the order
       responses:
         '204':
-          description: Pedido eliminado exitosamente
+          description: Order deleted successfully
         '404':
-          description: Pedido no encontrado
+          description: Order not found
 
 components:
   schemas:
@@ -124,7 +124,7 @@ components:
           example: "Adrià Jordà"
         product:
           type: string
-          example: "Libro de Laravel"
+          example: "Laravel Book"
         quantity:
           type: integer
           example: 2
@@ -138,7 +138,7 @@ components:
           example: "2026-01-05"
         status:
           type: string
-          example: "pendiente"
+          example: "pending"
         created_at:
           type: string
           format: date-time
