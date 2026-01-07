@@ -1,0 +1,25 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API de Pedidos (Orders)",
+        "description": "API para gestionar pedidos en Laravel",
+        "contact": {
+            "name": "Adrià Jordà Martínez",
+            "email": "adria@example.com"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/orders": {
+            "get": {
+                "summary": "List orders",
+                "operationId": "2cd7e03021e72d9d799c12dfe179c865",
+                "responses": {
+                    "200": {
+                        "description": "list of orders"
+                    }
+                }
+            }
+        }
+    }
+}
