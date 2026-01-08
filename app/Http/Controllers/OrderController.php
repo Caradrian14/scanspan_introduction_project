@@ -6,11 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\Order;
 
 /**
- * @OA\Info(
- *     title="Orders API",
- *     version="1.0.0",
- *     description="API for managing orders"
- * )
  *
  * @OA\Schema(
  *     schema="Order",
