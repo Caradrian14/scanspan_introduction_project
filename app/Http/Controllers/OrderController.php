@@ -169,4 +169,10 @@ class OrderController extends Controller
         Order::findOrFail($id)->delete();
         return response()->json(null, 204);
     }
+
+    // Scope para pedidos activos ejemplo
+    // public function scopeActive($query)
+    // {
+    //     return $query->where('status', 'activo');
+    // }
 }

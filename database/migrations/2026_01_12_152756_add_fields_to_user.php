@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-         Schema::table('products', function (Blueprint $table) {
-            $table->string('name');
+        Schema::table('users', function (Blueprint $table) {
+            // $table->string('name');
             $table->text('description')->nullable();
             $table->decimal('price', 8, 2);
-            $table->integer('stock')->default(0);
-    });
+        });
     }
 
     /**
@@ -24,8 +23,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('products', function (Blueprint $table) {
-            //
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn(['description', 'price']); // Elimina las columnas al revertir la migración
         });
     }
 };
