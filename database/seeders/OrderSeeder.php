@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\Order;
+use App\Models\User;
+use App\Models\Product;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -28,12 +30,6 @@ class OrderSeeder extends Seeder
                     'unit_price' => $product->price,
                 ]);
             }
-
-            // Actualizar el total del pedido
-            $total = $order->products->sum(function ($product) use ($order) {
-                return $product->pivot->quantity * $product->pivot->unit_price;
-            });
-            $order->update(['total_amount' => $total]);
         });
     }
 }

@@ -13,8 +13,6 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             // $table->string('name');
-            $table->text('description')->nullable();
-            $table->decimal('price', 8, 2);
         });
     }
 
